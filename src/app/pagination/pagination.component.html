@@ -1,0 +1,30 @@
+<div class="flex justify-center items-center space-x-2 mt-4">
+  <button
+    (click)="goToPage(currentPage - 1)"
+    [disabled]="currentPage === 1"
+    class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition disabled:bg-gray-300 disabled:cursor-not-allowed"
+  >
+    Previous
+  </button>
+
+  <ng-container *ngFor="let page of pages">
+    <button
+      (click)="goToPage(page)"
+      [ngClass]="{
+        'bg-blue-500 text-white': page === currentPage,
+        'bg-white text-blue-500': page !== currentPage
+      }"
+      class="px-4 py-2 rounded-lg shadow-md hover:bg-blue-100 transition"
+    >
+      {{ page }}
+    </button>
+  </ng-container>
+
+  <button
+    (click)="goToPage(currentPage + 1)"
+    [disabled]="currentPage === totalPages"
+    class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition disabled:bg-gray-300 disabled:cursor-not-allowed"
+  >
+    Next
+  </button>
+</div>

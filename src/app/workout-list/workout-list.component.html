@@ -1,0 +1,104 @@
+<div
+  class="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6"
+>
+  <div class="w-full max-w-3xl bg-white p-8 rounded-lg shadow-lg">
+    <div
+      class="mb-6 flex flex-col md:flex-row md:items-center md:justify-between"
+    >
+      <div class="mb-4 md:mb-0 md:w-1/2">
+        <label for="search" class="block text-gray-700 font-medium mb-2"
+          >Search</label
+        >
+        <input
+          id="search"
+          type="text"
+          [(ngModel)]="searchTerm"
+          placeholder="Search by Name or Workout Type"
+          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <div class="md:w-1/2">
+        <label for="filter" class="block text-gray-700 font-medium mb-2"
+          >Filter by Workout Type</label
+        >
+        <select
+          id="filter"
+          [(ngModel)]="filterType"
+          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="">All</option>
+          <option *ngFor="let type of workoutTypes" [value]="type">
+            {{ type }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-6 text-center">
+      <button
+        (click)="showResults()"
+        class="px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition"
+      >
+        Show Results
+      </button>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table
+        mat-table
+        [dataSource]="paginatedUsers"
+        class="min-w-full divide-y divide-gray-200"
+      >
+        <ng-container matColumnDef="name">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
+          >
+            Name
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let user"
+            class="px-6 py-4 whitespace-nowrap text-gray-1500"
+          >
+            {{ user.name }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="workouts">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
+          >
+            Workouts
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let user"
+            class="px-6 py-4 whitespace-nowrap text-gray-1500"
+          >
+            <div *ngFor="let workout of user.workouts" class="text-sm">
+              {{ workout.type }}: {{ workout.minutes }} minutes
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+
+    <div class="mt-6">
+      <app-pagination
+        [total]="totalUsers"
+        [currentPage]="currentPage"
+        [itemsPerPage]="itemsPerPage"
+        (pageChange)="onPageChange($event)"
+        class="flex justify-center"
+      ></app-pagination>
+    </div>
+  </div>
+</div>

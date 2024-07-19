@@ -1,0 +1,53 @@
+<div class="w-full max-w-md bg-white shadow-md rounded-lg p-6">
+  <h2 class="text-2xl font-bold text-center mb-4">Add Workout</h2>
+  <div
+    *ngIf="showToast"
+    class="fixed bottom-4 right-4 bg-green-500 text-white py-2 px-4 rounded-lg shadow-lg"
+  >
+    Data successfully saved!
+  </div>
+  <form (ngSubmit)="addWorkout()" #workoutForm="ngForm" class="space-y-4">
+    <mat-form-field class="w-full">
+      <input
+        matInput
+        placeholder="User Name"
+        [(ngModel)]="newUser.name"
+        name="name"
+        required
+        class="w-full"
+      />
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-select
+        placeholder="Workout Type"
+        [(ngModel)]="newWorkout.type"
+        name="type"
+        required
+        class="w-full"
+      >
+        <mat-option *ngFor="let type of workoutTypes" [value]="type">{{
+          type
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <input
+        matInput
+        placeholder="Workout Minutes"
+        [(ngModel)]="newWorkout.minutes"
+        name="minutes"
+        type="number"
+        required
+        class="w-full"
+      />
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out"
+    >
+      Add Workout
+    </button>
+  </form>
+</div>

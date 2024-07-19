@@ -1,0 +1,30 @@
+<div class="min-h-screen flex flex-col bg-gray-100">
+  <header class="w-full bg-white shadow-lg rounded-lg p-4">
+    <nav class="flex justify-center space-x-8">
+      <a
+        routerLink="/user-form"
+        routerLinkActive="text-blue-800"
+        class="text-xl font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-300 transform hover:scale-105"
+      >
+        Add Workout
+      </a>
+      <a
+        routerLink="/workout-list"
+        routerLinkActive="text-blue-800"
+        class="text-xl font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-300 transform hover:scale-105"
+      >
+        Workout List
+      </a>
+      <a
+        routerLink="/workout-chart"
+        routerLinkActive="text-blue-800"
+        class="text-xl font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-300 transform hover:scale-105"
+      >
+        Workout Chart
+      </a>
+    </nav>
+  </header>
+  <main class="flex-grow flex items-center justify-center">
+    <router-outlet></router-outlet>
+  </main>
+</div>
