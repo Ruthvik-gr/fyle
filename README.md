@@ -46,7 +46,7 @@ _Download or Clone the Repository:_
 
 ## Usage
 
-- **Start **:
+Start:
 
   bash
   ng serve
@@ -54,7 +54,7 @@ _Download or Clone the Repository:_
 - _Run Unit Tests_
 
   bash
-  npm run test
+  ng test 
 
 - **Run Unit Tests with coverage**
 
