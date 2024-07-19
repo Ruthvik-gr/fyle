@@ -46,7 +46,7 @@ _Download or Clone the Repository:_
 
 ## Usage
 
-Start:
+- Start:
   ng serve
 
 - _Run Unit Tests_
