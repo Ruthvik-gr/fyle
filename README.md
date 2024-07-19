@@ -47,17 +47,12 @@ _Download or Clone the Repository:_
 ## Usage
 
 Start:
-
-  bash
   ng serve
 
 - _Run Unit Tests_
-
-  bash
   ng test 
 
-- **Run Unit Tests with coverage**
-
+- Run Unit Tests with coverage
   bash
   ng test --code-coverage
 
