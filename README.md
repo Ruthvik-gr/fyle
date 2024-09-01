@@ -55,14 +55,3 @@ _Download or Clone the Repository:_
 - Run Unit Tests with coverage
   bash
   ng test --code-coverage
-
-## Code Coverage
-
-The following is a summary of the code coverage for the project:
-
-- _Statements_: 45.37% (54/119)
-- _Branches_: 26.08% (6/23)
-- _Functions_: 34.28% (12/35)
-- _Lines_: 44.95% (49/109)
-
-This coverage report provides an overview of the extent to which the codebase is tested by the unit tests. Efforts are ongoing to increase coverage and improve the overall quality of the tests.
